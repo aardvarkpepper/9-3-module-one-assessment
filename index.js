@@ -184,7 +184,7 @@ function filterByGenre(movies, genre) {
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   let returnArray = [];
-  for (movie of movies) {
+  for (let movie of movies) {
     if (movie.released.slice(7) <= year) {
       returnArray.push(movie);
     }
@@ -203,7 +203,21 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let returnString = "";
+  let highBoxOfficeAmt = 0;
+  if (movies.length === 0) {
+    return null;
+  }
+  for (let movie of movies) {
+    let movieBoxOffice = Number(movie.boxOffice.slice(1).split(",").join(""));
+    if (movieBoxOffice > highBoxOfficeAmt) {
+      highBoxOfficeAmt = movieBoxOffice;
+      returnString = movie.title;
+    }
+  }
+  return returnString;
+}
 
 // Do not change anything below this line.
 module.exports = {
