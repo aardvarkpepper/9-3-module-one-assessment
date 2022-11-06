@@ -28,7 +28,13 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let returnArray = [];
+  for (let i = 0; i < movies.length; i++) {
+    returnArray[i] = movies[i].title;
+  }
+  return returnArray;
+}
 
 /**
  * getHighestMetascore()
